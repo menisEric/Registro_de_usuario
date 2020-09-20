@@ -1,0 +1,39 @@
+﻿<!DOCTYPE html>
+@using System.Web.Optimization
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>@ViewBag.Title</title>
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/jqueryval")
+    @Scripts.Render("~/bundles/jqueryvalunobtrusive")
+
+    @Styles.Render("~/content/Style.css")
+
+</head>
+<body>
+    @{ 
+        if(!string.IsNullOrEmpty(ViewBag.User))
+        {
+        <div class="head">
+            <ul class="nav navbar-nav">
+                <li>@Html.ActionLink("Inicio", "Index", "Home")</li>
+                <li>@Html.ActionLink("Acerca de", "Index2", "Home")</li>
+                <li>@Html.ActionLink("Salir", "Close", "Users")</li>
+            </ul>
+            <h2>Bienvenido: @User</h2>
+        </div><br/><br/>
+        }
+    }
+    <div>
+        @RenderBody()
+    </div>
+    <footer>
+        <center>
+            <p>&copy;PDHN</p>
+        </center>
+    </footer>
+    
+
+</body>
+</html>
